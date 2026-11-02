@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JaME – Jamb Made Easy | JAMB Practice for Nigerian Students</title><meta name="description" content="Practise JAMB past questions, follow the syllabus and take CBT-style mock exams. Ad-free."><meta name="theme-color" content="#0b7a45"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="JaME">
+<style>
+:root{--bg:#f6f8f6;--card:#fff;--tx:#14231a;--mu:#5b6b61;--pr:#0b7a45;--pt:#fff;--bd:#dfe6e1;--ac:#f2b705;--bad:#c0392b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1a14;--card:#17261d;--tx:#e8f1ea;--mu:#9bb0a2;--bd:#27392e;--pr:#31b36f;--pt:#06180e}}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+#app{max-width:880px;margin:auto;min-height:100%;display:flex;flex-direction:column}
+header{padding:14px 16px;background:var(--pr);color:var(--pt);font-weight:700;display:flex;justify-content:space-between;align-items:center}
+header small{font-weight:400;opacity:.85}
+main{flex:1;padding:14px 14px 84px;overflow-x:hidden}
+nav{position:fixed;bottom:0;left:0;right:0;max-width:880px;margin:auto;display:flex;background:var(--card);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav button{flex:1;border:0;background:none;color:var(--mu);padding:9px 2px;font-size:12px}
+nav button b{display:block;font-size:19px}nav .on{color:var(--pr);font-weight:700}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{margin:4px 0 10px;font-size:20px}h3{margin:0 0 6px;font-size:16px}p{margin:6px 0}.mu{color:var(--mu);font-size:14px}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--pr);color:var(--pt);padding:13px;font-size:16px;font-weight:700;margin-top:8px}
+.btn.o{background:none;color:var(--pr);border:1.5px solid var(--pr)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;text-align:left;color:var(--tx);font-size:15px}
+.tile b{display:block;font-size:24px}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--bd);color:var(--tx);border-radius:10px;padding:10px;margin:6px 0;font-size:15px}
+.opt.s{border-color:var(--pr);background:color-mix(in srgb,var(--pr) 14%,transparent)}
+.opt.g{border-color:var(--pr)}.opt.x{border-color:var(--bad)}
+.chip{display:inline-block;border:1.5px solid var(--bd);border-radius:20px;padding:6px 12px;margin:3px 3px 3px 0;background:var(--card);color:var(--tx);font-size:14px}
+.chip.s{background:var(--pr);color:var(--pt);border-color:var(--pr)}
+.lock{display:inline-block;background:var(--ac);color:#222;border-radius:8px;padding:1px 7px;font-size:12px;font-weight:700}
+.bar{height:10px;border-radius:6px;background:var(--bd);overflow:hidden}.bar i{display:block;height:100%;background:var(--pr)}
+input,textarea{width:100%;padding:11px;border-radius:10px;border:1.5px solid var(--bd);background:var(--card);color:var(--tx);font-size:16px}
+.back{background:none;border:0;color:var(--pr);font-size:15px;padding:0 0 8px;font-weight:700}
+.acct{font-size:22px;font-weight:800;letter-spacing:1px;color:var(--pr)}
+.top{display:flex;justify-content:space-between;align-items:center}
+</style></head><body><div id="app"><header><span>JaME <small>Jamb Made Easy</small></span><span id="tag"></span></header><main id="m"></main><nav id="nv"></nav></div>
+<script>
+const ALL=["Mathematics","Physics","Chemistry","Biology","Economics","Government","Literature","Commerce","CRK","Geography"];
+const q=(t,o,a,e)=>({t,o,a,e});
+const EN=[q("Nearest in meaning to “abundant”",["scarce","plentiful","tiny","costly"],1,"Abundant means existing in large quantities."),
+q("She ___ to school every day.",["go","goes","going","gone"],1,"A singular subject takes “goes” in the simple present."),
+q("Opposite of “ancient”",["old","modern","rare","weak"],1,"Ancient means very old; modern is its opposite."),
+q("Choose the correct spelling.",["Accomodation","Accommodation","Acomodation","Acommodation"],1,"Double c and double m."),
+q("“He kicked the bucket” means",["He died","He played","He fell","He ran"],0,"An idiom meaning to die."),
+q("Plural of “child”",["childs","children","childes","childrens"],1,"Irregular plural."),
+q("Which word is a noun?",["quickly","beautiful","happiness","run"],2,"Happiness names a feeling."),
+q("Past tense of “bring”",["brang","brought","bringed","brung"],1,"Irregular verb: bring, brought."),
+q("“The sun rises in the east” is in the",["simple present","past","future","perfect"],0,"A general truth uses the simple present."),
+q("Opposite of “generous”",["kind","stingy","rich","happy"],1,"Stingy means unwilling to give."),
+q("Neither of the boys ___ present.",["is","are","were","have been"],0,"“Neither” is singular."),
+q("Synonym of “begin”",["end","commence","stop","pause"],1,"Commence means to begin."),
+q("“The wind whispered” is",["simile","personification","metaphor","irony"],1,"The wind is given a human action."),
+q("Each of the students ___ a book.",["has","have","are","were"],0,"“Each” is singular."),
+q("Which is a conjunction?",["and","under","quick","slowly"],0,"And joins words or clauses.")];
+const B={English:EN,
+Mathematics:[q("Solve 2x + 3 = 11",["3","4","5","6"],1,"2x = 8, so x = 4."),q("Value of 3² + 4²",["7","12","25","49"],2,"9 + 16 = 25.")],
+Physics:[q("SI unit of force",["Joule","Newton","Watt","Pascal"],1,"Force is measured in newtons."),q("Speed of light is about",["3×10⁸ m/s","3×10⁶ m/s","3×10⁵ m/s","3×10³ m/s"],0,"Approximately 300,000 km/s.")],
+Chemistry:[q("Symbol for sodium",["So","Na","S","N"],1,"From the Latin natrium."),q("pH of neutral water",["0","7","14","10"],1,"Neutral is pH 7.")],
+Biology:[q("Powerhouse of the cell",["nucleus","ribosome","mitochondrion","vacuole"],2,"Mitochondria release energy."),q("Plants make food by",["respiration","photosynthesis","digestion","excretion"],1,"Using light, water and CO₂.")],
+Economics:[q("The basic economic problem is",["scarcity","inflation","tax","trade"],0,"Limited resources, unlimited wants."),q("Demand rises when price falls: the law of",["supply","demand","returns","diminishing utility"],1,"This is the law of demand.")],
+Government:[q("Nigeria became independent in",["1957","1960","1963","1966"],1,"1st October 1960."),q("Separation of powers is linked to",["Montesquieu","Marx","Lenin","Hobbes"],0,"He wrote The Spirit of the Laws.")],
+Literature:[q("A 14-line poem is a",["ode","sonnet","elegy","ballad"],1,"A sonnet has 14 lines."),q("The main character is the",["protagonist","antagonist","narrator","chorus"],0,"The protagonist drives the plot.")],
+Commerce:[q("An aid to trade is",["banking","farming","mining","fishing"],0,"Banking supports trade."),q("A retailer sells mainly to",["consumers","wholesalers","producers","farmers"],0,"Retailers serve final consumers.")],
+CRK:[q("First book of the Bible",["Exodus","Genesis","Matthew","Psalms"],1,"Genesis."),q("Who baptised Jesus?",["Peter","John the Baptist","Paul","Moses"],1,"John the Baptist.")],
+Geography:[q("Largest continent",["Africa","Asia","Europe","Australia"],1,"Asia."),q("The 0° latitude line is the",["Equator","Prime Meridian","Tropic of Cancer","Arctic Circle"],0,"The Equator.")]};
+const CUR={English:"Comprehension, Lexis and Structure, Oral Forms, Prescribed Novel",Mathematics:"Number and Numeration, Algebra, Geometry, Trigonometry, Statistics, Calculus",Physics:"Mechanics, Heat, Waves, Electricity, Modern Physics",Chemistry:"Atomic Structure, Bonding, Acids and Bases, Organic Chemistry, Rates",Biology:"Cell Biology, Ecology, Genetics, Evolution, Plant and Animal Nutrition",Economics:"Basic Concepts, Demand and Supply, Money and Banking, Public Finance",Government:"Basic Concepts, Constitutions, Arms of Government, Nigerian History",Literature:"Drama, Prose, Poetry, Literary Appreciation",Commerce:"Trade, Aids to Trade, Business Units, Marketing",CRK:"Old Testament, Gospels, Acts, Christian Living",Geography:"Map Reading, Physical, Human and Regional Geography of Nigeria"};
+const OPT=["Agricultural Science","Accounting","Further Mathematics","Yoruba","Igbo","Hausa","Islamic Studies","History","Technical Drawing","Computer Studies"];
+let S={subs:[],paid:false,hist:[],prac:{},rem:"18:00",remOn:false};
+try{Object.assign(S,JSON.parse(localStorage.getItem("jame")||"{}"))}catch(e){}
+if(S.subs.length==3&&!S.subs.includes("English"))S.subs.unshift("English");
+const save=()=>{try{localStorage.setItem("jame",JSON.stringify(S))}catch(e){}};
+const $=s=>document.querySelector(s),M=$("#m");
+let sc="home",tmp={},tab="home",seen=false;
+const go=(s,t)=>{sc=s;tmp=t||{};if(["home","prac","mock","ai","me"].includes(s))tab=s;render();scrollTo(0,0)};
+const gate=()=>S.paid||(go("sub"),false);
+const chipsAll=()=>ALL.concat(OPT);
+function nav(){$("#nv").innerHTML=[["home","🏠","Home"],["prac","📝","Practice"],["mock","⏱️","Mock"],["ai","🤖","AI Tutor"],["me","👤","Me"]].map(([k,i,l])=>`<button class="${tab==k?"on":""}" onclick="go('${k}')"><b>${i}</b>${l}</button>`).join("");$("#nv").style.display=S.subs.length?"flex":"none";$("#tag").innerHTML=S.paid?"⭐ Premium":""}
+function render(){nav();const f=V[sc];M.innerHTML=S.subs.length||sc=="setup"?f():(seen?V.setup():V.land())}
+const four=()=>S.subs;
+const V={
+land(){return`<section style="text-align:center;padding:26px 6px"><h1 style="font-size:32px;margin:0 0 8px">Pass JAMB with confidence</h1><p class="mu" style="font-size:17px">JaME (Jamb Made Easy) helps Nigerian students practise past questions, follow the syllabus and take real CBT-style mock exams. No ads.</p><button class="btn" style="max-width:320px;margin:14px auto" onclick="seen=true;go('setup')">Start free</button></section><div class="grid"><div class="card"><h3>🆓 Free</h3><p class="mu">15 English past questions, the JAMB curriculum, daily study reminders and a progress tracker.</p></div><div class="card"><h3>⭐ Premium</h3><p class="mu">35 years of past questions with answers, AI tutor with voice, mock CBT exams, every subject’s syllabus and the JAMB novels.</p></div><div class="card"><h3>₦300 a month</h3><p class="mu">Or ₦3,000 for a whole year. Simple, affordable pricing.</p></div><div class="card"><h3>📱 Works on any phone</h3><p class="mu">Open the website in your browser and add it to your home screen.</p></div></div><p class="mu" style="text-align:center">© JaME – Jamb Made Easy</p>`},
+setup(){const sel=tmp.sel||S.subs.slice();tmp.sel=sel;
+return`<h2>Welcome to JaME 👋</h2><p class="mu">Pick the four subjects you will write in JAMB. You can change any of them at any time under “Me”.</p><div class="card"><div>${["English"].concat(ALL,OPT).map(s=>`<button class="chip ${sel.includes(s)?"s":""}" onclick="pick('${s}')">${s}</button>`).join("")}</div><p class="mu">${sel.length}/4 chosen</p></div><button class="btn" onclick="done()" ${sel.length==4?"":"disabled style='opacity:.5'"}>Save and continue</button>`},
+home(){const n=Object.keys(S.prac).length;return`<h2>Hello, candidate</h2><div class="card"><h3>Your 4 subjects</h3>${four().map(s=>`<span class="chip s">${s}</span>`).join("")}</div>
+<div class="grid"><button class="tile" onclick="go('prac')"><b>📝</b>Free English practice</button><button class="tile" onclick="go('curr')"><b>📘</b>Curriculum</button><button class="tile" onclick="go('mock')"><b>⏱️</b>Mock CBT <span class="lock">PRO</span></button><button class="tile" onclick="go('past')"><b>🗂️</b>35 years of past questions <span class="lock">PRO</span></button><button class="tile" onclick="go('ai')"><b>🤖</b>AI Tutor <span class="lock">PRO</span></button><button class="tile" onclick="go('novel')"><b>📖</b>JAMB novels <span class="lock">PRO</span></button></div>
+<div class="card" style="margin-top:12px"><h3>Study progress</h3><div class="bar"><i style="width:${Math.round(n/15*100)}%"></i></div><p class="mu">${n} of 15 free English questions attempted</p></div>
+${S.paid?"":`<button class="btn" onclick="go('sub')">Unlock everything from ₦300/month</button>`}`},
+prac(){const i=tmp.i||0,x=EN[i];return`<h2>English past questions</h2><p class="mu">Free set of 15 from last year. Answers are available on Premium.</p><div class="card"><p class="mu">Question ${i+1} of 15</p><p><b>${x.t}</b></p>${x.o.map((o,k)=>`<button class="opt ${S.prac[i]===k?"s":""}" onclick="ans(${i},${k})">${"ABCD"[k]}. ${o}</button>`).join("")}</div>
+<div class="grid"><button class="btn o" onclick="go('prac',{i:${Math.max(0,i-1)}})">← Back</button><button class="btn o" onclick="go('prac',{i:${Math.min(14,i+1)}})">Next →</button></div>${S.paid?"":`<button class="btn" onclick="go('sub')">See answers with Premium</button>`}`},
+curr(){return`<button class="back" onclick="go('home')">← Back</button><h2>JAMB curriculum</h2>${(S.paid?["English"].concat(ALL,OPT):four()).map(s=>`<div class="card"><h3>${s}</h3><p class="mu">${CUR[s]||"Full syllabus topics for this subject."}</p></div>`).join("")}${S.paid?"":`<div class="card"><span class="lock">PRO</span> Complete curriculum for every secondary school subject.<button class="btn" onclick="go('sub')">Unlock</button></div>`}`},
+past(){if(!S.paid)return V.lockv("Past questions, 35 years");const y=tmp.y||2025,s=tmp.s||"English";return`<button class="back" onclick="go('home')">← Back</button><h2>Past questions with answers</h2><div>${four().map(a=>`<button class="chip ${a==s?"s":""}" onclick="go('past',{y:${y},s:'${a}'})">${a}</button>`).join("")}</div><div style="overflow-x:auto;white-space:nowrap;margin:8px 0">${Array.from({length:35},(_,k)=>2025-k).map(a=>`<button class="chip ${a==y?"s":""}" onclick="go('past',{y:${a},s:'${s}'})">${a}</button>`).join("")}</div>${(B[s]||[]).slice(0,5).map((x,k)=>`<div class="card"><p><b>${k+1}. ${x.t}</b></p>${x.o.map((o,j)=>`<div class="opt ${j==x.a?"g":""}">${"ABCD"[j]}. ${o}${j==x.a?" ✔":""}</div>`).join("")}<p class="mu">${x.e}</p></div>`).join("")}<p class="mu">Sample content shown. Load your full ${y} ${s} bank here.</p>`},
+novel(){if(!S.paid)return V.lockv("JAMB novels");return`<button class="back" onclick="go('home')">← Back</button><h2>JAMB novels</h2><div class="card"><h3>Current year novel</h3><p class="mu">Add the title, summary, characters, themes and audio here.</p></div><div class="card"><h3>Past years</h3><p class="mu">Previous novels will be listed by year.</p></div>`},
+mock(){if(!S.paid)return V.lockv("Mock CBT exams");if(tmp.run)return V.exam();if(tmp.rev!=null)return V.review();return`<h2>Mock CBT</h2><div class="card"><p>Simulates real JAMB CBT: ${four().join(", ")}. Timed, one question at a time, instant results.</p><button class="btn" onclick="startMock()">Start mock exam</button></div><h3>Saved results</h3>${S.hist.length?S.hist.map((h,i)=>`<button class="tile" style="width:100%;margin-bottom:8px" onclick="go('mock',{rev:${i}})"><b style="font-size:17px">${h.total}/${h.max}</b>${h.date}</button>`).join(""):`<p class="mu">No mock exams written yet.</p>`}`},
+exam(){const e=tmp.run,cur=e.qs[e.sub][e.i],t=e.left;return`<div class="top"><b>⏱ ${String(Math.floor(t/60)).padStart(2,"0")}:${String(t%60).padStart(2,"0")}</b><button class="chip" onclick="submitMock()">Submit</button></div><div style="overflow-x:auto;white-space:nowrap">${four().map((s,k)=>`<button class="chip ${k==e.sub?"s":""}" onclick="tmp.run.sub=${k};tmp.run.i=0;render()">${s}</button>`).join("")}</div><div class="card"><p class="mu">Question ${e.i+1} of ${e.qs[e.sub].length}</p><p><b>${cur.t}</b></p>${cur.o.map((o,k)=>`<button class="opt ${e.a[e.sub][e.i]===k?"s":""}" onclick="tmp.run.a[${e.sub}][${e.i}]=${k};render()">${"ABCD"[k]}. ${o}</button>`).join("")}</div><div class="grid"><button class="btn o" onclick="tmp.run.i=Math.max(0,tmp.run.i-1);render()">← Prev</button><button class="btn o" onclick="tmp.run.i=Math.min(${e.qs[e.sub].length-1},tmp.run.i+1);render()">Next →</button></div>`},
+review(){const h=S.hist[tmp.rev],ex=tmp.ex;return`<button class="back" onclick="go('mock')">← Back</button><h2>${h.total}/${h.max} · ${h.date}</h2>${h.subs.map(s=>`<div class="card"><h3>${s.n}: ${s.sc}/${s.qs.length}</h3>${s.qs.map((x,k)=>{const p=s.pk[k];return`<p><b>${k+1}. ${x.t}</b></p>${x.o.map((o,j)=>`<div class="opt ${j==x.a?"g":p==j?"x":""}">${o}${j==x.a?" ✔":p==j?" ✘":""}</div>`).join("")}${ex?`<p class="mu">${x.e}</p>`:""}`}).join("")}</div>`).join("")}<button class="btn o" onclick="tmp.ex=!tmp.ex;render()">${ex?"Hide":"Show"} explanations</button>`},
+ai(){if(!S.paid)return V.lockv("AI Tutor");const log=tmp.log||[];return`<h2>AI Tutor</h2><p class="mu">Needs internet. Ask anything about your subjects, textbooks or novels.</p>${log.map(l=>`<div class="card"><p class="mu">You: ${l.q}</p><p>${l.r}</p><button class="chip" onclick="speak(${tmp.log.indexOf(l)})">🔊 Listen</button></div>`).join("")}<textarea id="aq" rows="3" placeholder="Type your question…"></textarea><button class="btn" onclick="ask()">Ask</button>`},
+me(){const rows=four().map(s=>{const a=S.hist.map(h=>h.subs.find(x=>x.n==s)).filter(Boolean);const p=a.length?Math.round(a.reduce((t,x)=>t+x.sc/x.qs.length,0)/a.length*100):0;return`<p class="top"><span>${s}</span><span>${p}%</span></p><div class="bar"><i style="width:${p}%"></i></div>`}).join("");
+return`<h2>Me</h2><div class="card"><h3>Progress tracker</h3>${rows}<p class="mu">Based on your saved mock exams.</p></div><div class="card"><h3>Daily study reminder</h3><input type="time" value="${S.rem}" onchange="S.rem=this.value;save()"><button class="btn ${S.remOn?"o":""}" onclick="remind()">${S.remOn?"Turn reminder off":"Turn reminder on"}</button></div><div class="card"><h3>My subjects</h3><p class="mu">${four().join(", ")}</p><button class="btn o" onclick="go('setup',{sel:S.subs.slice()})">Edit subjects</button></div><div class="card"><h3>Install on your phone</h3><p class="mu">Android (Chrome): tap the ⋮ menu, then “Add to Home screen” or “Install app”.<br>iPhone (Safari): tap Share, then “Add to Home Screen”.</p></div>${S.paid?"":`<button class="btn" onclick="go('sub')">Go Premium</button>`}`},
+lockv(t){return`<div class="card" style="text-align:center"><p style="font-size:40px;margin:0">🔒</p><h3>${t} is a Premium feature</h3><p class="mu">Subscribe from ₦300 a month. No ads, ever.</p><button class="btn" onclick="go('sub')">See plans</button></div>`},
+sub(){return`<button class="back" onclick="go('home')">← Back</button><h2>JaME Premium</h2><div class="card"><p>✔ 35 years of past questions with answers<br>✔ AI tutor with voice and audio reading<br>✔ Complete curriculum for all subjects<br>✔ Mock CBT with saved results and explanations<br>✔ JAMB novels, current and past<br>✔ No ads</p></div><div class="grid"><button class="tile" onclick="go('pay',{p:'Monthly',a:'₦300'})"><b>₦300</b>per month</button><button class="tile" onclick="go('pay',{p:'Yearly',a:'₦3,000'})"><b>₦3,000</b>per year</button></div><button class="btn" onclick="go('pay',{p:'Monthly',a:'₦300'})">Subscribe</button>`},
+pay(){return`<button class="back" onclick="go('sub')">← Back</button><h2>Pay ${tmp.a} (${tmp.p})</h2><div class="card"><p class="mu">Transfer exactly ${tmp.a} to:</p><p class="acct">1798524262</p><p><b>Access Bank</b><br>Chinedu Samuel Egbu</p><p class="mu">After transfer, tap the button below. Your subscription is activated once your payment is confirmed.</p></div><button class="btn" onclick="paid()">I have made the transfer</button>`}};
+function pick(s){const a=tmp.sel;a.includes(s)?a.splice(a.indexOf(s),1):a.length<4&&a.push(s);render()}
+function done(){S.subs=tmp.sel;save();go("home")}
+function ans(i,k){S.prac[i]=k;save();render()}
+function startMock(){const qs=four().map(s=>(B[s]||[]).slice(0,5));go("mock",{run:{qs,a:qs.map(x=>x.map(()=>null)),sub:0,i:0,left:1200}});clearInterval(window.tk);window.tk=setInterval(()=>{if(!tmp.run)return clearInterval(window.tk);if(--tmp.run.left<=0)submitMock();else render()},1000)}
+function submitMock(){const e=tmp.run;if(!e)return;clearInterval(window.tk);const subs=four().map((n,k)=>({n,qs:e.qs[k],pk:e.a[k],sc:e.qs[k].filter((x,j)=>e.a[k][j]===x.a).length}));S.hist.unshift({date:new Date().toLocaleString(),subs,total:subs.reduce((t,s)=>t+s.sc,0),max:subs.reduce((t,s)=>t+s.qs.length,0)});save();go("mock",{rev:0})}
+function ask(){const v=$("#aq").value.trim();if(!v)return;const log=tmp.log||[];if(!navigator.onLine){log.push({q:v,r:"You are offline. Connect to the internet to use the AI Tutor."})}else{log.push({q:v,r:"Demo reply. Your connected AI service will answer here with a detailed, step-by-step explanation."})}go("ai",{log})}
+function speak(i){try{speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(tmp.log[i].r))}catch(e){}}
+function remind(){S.remOn=!S.remOn;save();if(S.remOn&&window.Notification)Notification.requestPermission();render()}
+setInterval(()=>{if(S.remOn&&window.Notification&&Notification.permission=="granted"){const d=new Date(),t=String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");if(t==S.rem&&window.lr!=t){window.lr=t;new Notification("JaME",{body:"Time to study. A little every day wins."})}}},20000);
+function paid(){if(confirm("Demo only: activate Premium on this device?")){S.paid=true;save();go("home")}}
+render();
+</script></body></html>
